@@ -1,4 +1,4 @@
-# Set-Proxy-Environment-Variable
+# Set-Environment-Variable
  
   Purpose:                                                                                               
      Organisations usually block proxy setting option through group policy. Also, users usually don't    
