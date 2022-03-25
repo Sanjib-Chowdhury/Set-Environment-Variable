@@ -2,7 +2,7 @@
  
     Purpose:                                                                                               
      Corporate users most often can not change proxy settings for System traffic or from Non-PAC aware   
-     Applications. Most common issues observed with Non-PAX aware applications are -                     
+     Applications. Most common issues observed with Non-PAC aware applications are -                     
      Cannot connect to proxy, 407 proxy authentication required, [SSL: CERTIFICATE_VERIFY_FAILED]        
                                                                                                          
      This script helps DevOps/ Developers & Security engineers to add permanent Environment Variable     
