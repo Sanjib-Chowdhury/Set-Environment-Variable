@@ -1,18 +1,16 @@
 # Set-Environment-Variable
  
-  Purpose:                                                                                               
-     Organisations usually block proxy setting option through group policy. Also, users usually don't    
-     have Admin access to change the proxy setting. This script helps DevOps/ Developers & Security      
- 
-  Purpose:                                                                                               
-     Organisations usually block proxy setting option through group policy. Also, users usually don't    
-     have Admin access to change the proxy setting. This script helps DevOps/ Developers & Security      
-     engineers to the proxy for non PAC-Aware applications like AWS CLI, AZURE CLI, Git Client etc.      
-     to work properly from behind the corporate proxy.                                                   
+    Purpose:                                                                                               
+     Corporate users most often can not change proxy settings for System traffic or from Non-PAC aware   
+     Applications. Most common issues observed with Non-PAX aware applications are -                     
+     Cannot connect to proxy, 407 proxy authentication required, [SSL: CERTIFICATE_VERIFY_FAILED]        
+                                                                                                         
+     This script helps DevOps/ Developers & Security engineers to add permanent Environment Variable     
+     for making applications to work properly.                                                           
+     Most common Environment Variables are: http_proxy https_proxy SSL_CERT_FILE                         
                                                                                                          
   How to use:                                                                                            
-     Run the script & enter details when prompted. Read the content of the file out.txt                  
-                                                                                                         
+     Run the script & enter details when prompted.                                                       
      A file out.txt will get generated. Read carefully the message displayed in the output file.         
                                                                                                          
   Disclaimer:                                                                                            
@@ -20,15 +18,3 @@
      Use at your own risk -:).                                                                           
                                                                                                          
      Report bug to sanjib_25@yahoo.com. Visit https://github.com/Sanjib-Chowdhury for more tools.        
- 
- It helps to reslove folllowing issues:
- 
-az login
-The command failed with an unexpected error. Here is the traceback:
-HTTPSConnectionPool(host='login.microsoftonline.com', port=443): Max retries exceeded with url: /organizations/v2.0/.well-known/openid-configuration (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x043EC040>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed')))
-
-or
-
-HTTPSConnectionPool(host='login.microsoftonline.com', port=443): Max retries exceeded with url: /organizations/v2.0/.well-known/openid-configuration (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1125)')))
-az_command_data_logger: HTTPSConnectionPool(host='login.microsoftonline.com', port=443): Max retries exceeded with url: /organizations/v2.0/.well-known/openid-configuration (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1125)')))
-
