@@ -1,0 +1,57 @@
+echo "**********************************************************************************************************"
+echo "* Purpose:                                                                                               *"
+echo "*    Corporate users most often can not change proxy settings for System traffic or from Non-PAC aware   *"
+echo "*    Applications. Most common issues observed with Non-PAC aware applications are -                     *"
+echo "*    Cannot connect to proxy, 407 proxy authentication required, [SSL: CERTIFICATE_VERIFY_FAILED]        *"
+echo "*                                                                                                        *"
+echo "*    This script helps DevOps/ Developers & Security engineers to add permanent Environment Variable     *"
+echo "*    for making applications to work properly.                                                           *"
+echo "*    Most common Environment Variables are: http_proxy https_proxy SSL_CERT_FILE                         *"
+echo "*                                                                                                        *"
+echo "* How to use:                                                                                            *"
+echo "*    Run the script & enter details when prompted.                                                       *"
+echo "*    A file out.txt will get generated. Read carefully the message displayed in the output file.         *"
+echo "*                                                                                                        *"
+echo "* Disclaimer:                                                                                            *"
+echo "*    There is no guarantee/ warranty that it will work as intended, though it worked fine during testing.*" 
+echo "*    Use at your own risk -:).                                                                           *"
+echo "*                                                                                                        *"
+echo "*    Report bug to sanjib_25@yahoo.com. Visit https://github.com/Sanjib-Chowdhury for more tools.        *"
+echo "**********************************************************************************************************"
+write-host "Warning!! Close all open Command prompt Windows before proceeding" -foreground magenta -background black
+echo ""
+echo "**************************************************************" > out.txt
+echo "*               Set environment variable                     *" >> out.txt
+echo "*           Report bug to sanjib_25@yahoo.com                *" >> out.txt
+echo "*  Visit https://github.com/Sanjib-Chowdhury for more tools  *" >> out.txt
+echo "**************************************************************" >> out.txt
+$date = date
+$date >> out.txt
+echo "**************************************************************" >> out.txt
+echo "" >> out.txt
+$envar = {
+$var = Read-Host 'Input Variable Name & hit enter'
+$path = Read-Host 'Input Variable Path & hit enter'
+$type = ($(Read-Host "Read-Host "Input Variable Type:"[system] or [user]").ToLower())
+
+
+if ($type -eq 'system' -or 'user'){
+[Environment]::SetEnvironmentVariable("$var", "$path", "$type")
+
+}
+echo ('Validate in a new command prompt window using: set | find "'+$var+'"') >> out.txt
+}
+
+do{
+&$envar
+}while($(Read-Host "Do you want to add another Variable? [Y]es or [N]o").ToLower() -eq 'y')
+
+echo "The environment vairable/s got added/updated" >> out.txt
+echo "" >> out.txt
+echo "**************************************************************" >> out.txt
+
+
+echo "**************************************************************" >> out.txt
+notepad out.txt
+
+
